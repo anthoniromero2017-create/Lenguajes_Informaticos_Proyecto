@@ -12,28 +12,37 @@
 </head>
 <body>
     <header>
-        <img src="./img/logo-futurista.png" alt="logo-futurista" height="125" width="125">
-        <h1>Cyber City</h1>
-        <h2>Donde la humanidad alcanza su máximo potencial.</h2>
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+                <div class="d-flex align-items-center gap-3">
+                    <img src="./img/logo-futurista.png" alt="Logo de Cyber City" height="100" width="100">
+                    <div>
+                        <h1>Cyber City</h1>
+                        <h2>Donde la humanidad alcanza su máximo potencial.</h2>
+                    </div>
+                </div>
+                <button id="btn-tema" class="btn btn-dark align-self-start align-self-md-center" type="button">🌙 Modo Oscuro</button>
+            </div>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="barrita"></span>
-            <span class="barrita"></span>
-            <span class="barrita"></span>
-        </button>
+            <nav class="navbar navbar-expand-lg mt-3 p-0" aria-label="Navegación principal">
+                <a class="navbar-brand fw-bold text-white" href="./index.html">Menú</a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+                    <span class="barrita"></span>
+                    <span class="barrita"></span>
+                    <span class="barrita"></span>
+                </button>
 
-        <nav class="collapse navbar-collapse" id="navbarNav">
-            <ul>
-                <li> <a href="./index.html">Inicio</a> </li>
-                <li> <a href="./contacto.html">Contacto</a> </li>
-                <li> <a href="./historia.html">Historia</a> </li>
-                <li> <a href="./lugaresTuristicos.html">Lugares Turísticos</a> </li>
-                <li> <a href="#redes">Redes Sociales</a> </li>
-            </ul>
-        </nav>
-        <button id="btn-tema" class="btn btn-dark mt-2" type="button">🌙 Modo Oscuro</button>
-        
-        <hr>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-auto gap-2 mt-2 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./historia.html">Historia</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./lugaresTuristicos.html">Lugares Turísticos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#redes">Redes Sociales</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -72,43 +81,65 @@
                 <figcaption>Mapa de la ciudad de Cyber City, mostrando los distintos sectores urbanos.</figcaption>
             </figure>
             <p>La arquitectura y el ambiente urbano están divididos en sectores marcados por distintas clases sociales y las actividades que desees realizar:</p>
-            <ul>
-                <li><strong>City Center (Zona Corporativa):</strong> El corazón económico. Un bosque de rascacielos blindados donde residen las mega-corporaciones que financian la tecnología de regulación climática.</li>
-                <li><strong>Distrito Residencial:</strong> El espacio diseñado para la clase trabajadora y los profesionales, equilibrando la densidad poblacional con servicios automatizados de transporte y salud.</li>
-                <li><strong>Zonas Costeras:</strong> El escape de la élite con hoteles de lujo, puertos tecnológicos y gastronomía marina sintética de alta gama.</li>
-                <li><strong>Más allá: Los Páramos:</strong> Aunque no es un barrio urbano, el desierto que rodea la metrópolis es clave. Es una zona árida con distintas actividades de expedición para hacer al aire libre y ruinas de la era de construcción. </li>
-            </ul>
+
+            <div class="row g-3 mt-2">
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-turistica h-100 mb-0">
+                        <h4>City Center (Zona Corporativa)</h4>
+                        <p>El corazón económico. Un bosque de rascacielos blindados donde residen las mega-corporaciones que financian la tecnología de regulación climática.</p>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-turistica h-100 mb-0">
+                        <h4>Distrito Residencial</h4>
+                        <p>El espacio diseñado para la clase trabajadora y los profesionales, equilibrando la densidad poblacional con servicios automatizados de transporte y salud.</p>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-turistica h-100 mb-0">
+                        <h4>Zonas Costeras</h4>
+                        <p>El escape de la élite con hoteles de lujo, puertos tecnológicos y gastronomía marina sintética de alta gama.</p>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-turistica h-100 mb-0">
+                        <h4>Más allá: Los Páramos</h4>
+                        <p>Aunque no es un barrio urbano, el desierto que rodea la metrópolis es clave. Es una zona árida con distintas actividades de expedición para hacer al aire libre y ruinas de la era de construcción.</p>
+                    </article>
+                </div>
+            </div>
         </section>
 
         <section>
             <h3>Datos y Curiosidades de la vida dentro del domo</h3>
+            <div class="alert alert-info mt-3" role="alert">
+                <strong>Dato destacado:</strong> El domo electromagnético mantiene una temperatura constante de 22 °C en toda la zona urbana frente al desierto de Los Páramos.
+            </div>
             <dl>
                 <dt>El Domo Climático</dt>
                 <dd>La zona urbana mantiene una temperatura constante de 22 °C gracias a un domo electromagnético, a pesar de estar rodeada por el desierto de Los Páramos.</dd>
                 
-                <dt>Filtrado y Purificacion</dt>
+                <dt>Filtrado y Purificación</dt>
                 <dd>Un sistema de micro-filtros iónicos impide el paso del polvo del desierto, garantizando la pureza del aire interior.</dd>
                 
                 <dt>Los "Ingenieros Fantasma"</dt>
                 <dd>Existe el rumor de que el Ing. Rodríguez diseñó un nivel subterráneo oculto debajo del City Center, cuyos accesos fueron borrados de los mapas oficiales tras su misteriosa desaparición en 2098.</dd>
                 
-                <dt>Proyeccion Atmosferica</dt>
+                <dt>Proyección Atmosférica</dt>
                 <dd>El domo proyecta cielos artificiales que simulan lluvia, atardeceres y noches estrelladas para garantizar el bienestar psicológico de sus habitantes.</dd>
             </dl>
         </section>
     </main>
-
-    <hr>
 
     <footer id="redes">
         <h3>Nuestras Redes Sociales</h3>
 
         <nav aria-label="Redes sociales">
             <ul>
-                <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-                <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-                <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>
-                <li><a href="https://www.tiktok.com/" target="_blank">TikTok</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a></li>
             </ul>
         </nav>
 
@@ -118,8 +149,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://jsdelivr.net" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
-
