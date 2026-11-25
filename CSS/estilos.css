@@ -1,11 +1,12 @@
 /* ========================================== PALETA DE COLORES Y VARIABLES ========================================== */
 :root {
     --color-primario: #1c9cad;
-    --color-primario-oscuro: #419eab;
+    --color-primario-oscuro: #157a88;
     --color-acento: #f1f3f3;
     --color-texto: #1a1a1a;
     --color-fondo: #f9f7fa;
-    --color-texto-claro: #c7c7c7;
+    --color-texto-claro: #4a5568;
+    --color-borde: #cbd5e1;
     --fuente-principal: "Inter", system-ui, -apple-system, sans-serif;
 }
 
@@ -17,25 +18,28 @@
     --color-texto: #f1f5f9;
     --color-fondo: #0f172a;
     --color-texto-claro: #94a3b8;
+    --color-borde: #334155;
 }
 
 [data-bs-theme="dark"] h1 {
     color: #38bdf8;
 }
 
-[data-bs-theme="dark"] header h2 {
+[data-bs-theme="dark"] header h2,
+[data-bs-theme="dark"] .lema-ciudad {
     color: #e2e8f0;
 }
 
 [data-bs-theme="dark"] main h2,
-[data-bs-theme="dark"] main h3 {
+[data-bs-theme="dark"] main h3,
+[data-bs-theme="dark"] .tarjeta-turistica h4 {
     color: var(--color-texto);
 }
 
 [data-bs-theme="dark"] .tarjeta-turistica,
 [data-bs-theme="dark"] figure.tarjeta-imagen {
     background-color: #1e293b;
-    border-color: #334155;
+    border-color: var(--color-borde);
 }
 
 [data-bs-theme="dark"] .tarjeta-turistica .ubicacion,
@@ -52,27 +56,28 @@
 [data-bs-theme="dark"] form select,
 [data-bs-theme="dark"] form textarea {
     color: var(--color-texto);
+    background-color: #1e293b;
 }
 
-/* ========================================== RESET BÁSICO Y ESTILOS GLOBALES ========================================== */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* ========================================== ESTILOS BASE ========================================== */
+@layer base {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
 
-html {
-    font-size: 18px;
-    scroll-behavior: smooth;
-}
+    html {
+        font-size: 18px;
+        scroll-behavior: smooth;
+    }
 
-body {
-    font-family: var(--fuente-principal);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-texto);
-    background-color: var(--color-fondo);
-    width: 100%;
+    body {
+        font-family: var(--fuente-principal);
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--color-texto);
+        background-color: var(--color-fondo);
+        width: 100%;
+    }
 }
 
 /* ========================================== TIPOGRAFÍA Y ELEMENTOS BÁSICOS ========================================== */
@@ -86,13 +91,14 @@ h1 {
     margin-bottom: 8px;
 }
 
-header h2 {
+header h2,
+.lema-ciudad {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     font-size: 1.15rem;
     font-weight: 400;
-    color: #333333;
+    color: #102a43;
     line-height: 1.5;
-    margin-top: 0;
+    margin-top: 0.25rem;
 }
 
 main h2 {
@@ -101,7 +107,7 @@ main h2 {
     font-weight: 600;
     color: #1d2731;
     line-height: 1.2;
-    border-left: 5px solid #3282b8;
+    border-left: 5px solid var(--color-primario);
     padding-left: 12px;
     margin-top: 32px;
     margin-bottom: 16px;
@@ -113,19 +119,19 @@ main h3 {
     font-weight: 600;
     color: #1d2731;
     line-height: 1.2;
-    border-left: 3px solid #3282b8;
+    border-left: 3px solid var(--color-primario);
     padding-left: 10px;
     margin-top: 24px;
     margin-bottom: 12px;
 }
 
 p {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
 }
 
 hr {
     border: none;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--color-borde);
     margin: 2rem 0;
 }
 
@@ -147,15 +153,15 @@ dl {
 }
 
 dt {
-    font-weight: bold;
+    font-weight: 700;
     margin-top: 1rem;
     color: var(--color-texto);
 }
 
 dd {
     margin-left: 1rem;
-    margin-top: 0.2rem;
-    color: #4a5568;
+    margin-top: 0.25rem;
+    color: var(--color-texto-claro);
 }
 
 /* ========================================== HEADER Y NAVEGACIÓN ========================================== */
@@ -166,7 +172,6 @@ header {
     width: 100%;
 }
 
-/* Menú de Navegación */
 nav {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
@@ -177,22 +182,24 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     gap: 1.2rem;
+    padding-left: 0;
+    margin-bottom: 0;
 }
 
 nav a {
-    color: var(--color-fondo);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 nav a:hover,
-nav a:focus {
-    color: var(--color-texto-claro);
+nav a:focus,
+nav a[aria-current="page"] {
+    color: #e0f7fa;
     text-decoration: underline;
 }
 
-/* Botón para abrir la barra de navegación */
 .navbar-toggler {
     background-color: var(--color-primario-oscuro);
     border: 2px solid var(--color-acento);
@@ -205,7 +212,6 @@ nav a:focus {
     box-shadow: none !important;
 }
 
-/* Las 3 barritas dibujadas */
 .barrita {
     display: block;
     width: 22px;
@@ -216,7 +222,7 @@ nav a:focus {
 }
 
 .navbar-toggler:hover .barrita {
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 /* ========================================== MAIN Y SECCIONES ========================================== */
@@ -229,10 +235,9 @@ main {
 section {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-primario);
+    border-bottom: 1px solid var(--color-borde);
 }
 
-/* Imágenes dentro de Secciones */
 main section img {
     width: 100%;
     max-width: 800px;
@@ -263,7 +268,7 @@ figcaption {
     grid-column: 1 / -1;
     text-align: center;
     font-style: italic;
-    color: #555555;
+    color: var(--color-texto-claro);
     margin-top: 0.5rem;
 }
 
@@ -271,36 +276,36 @@ figcaption {
 .contenedor-tarjetas {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     gap: 2rem;
 }
 
 .tarjeta-turistica {
-    flex: 1 1 300px;
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-borde);
     border-left: 5px solid var(--color-primario);
     border-radius: 8px;
     padding: 1.5rem;
-    margin-bottom: 2rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .tarjeta-turistica h2 {
     color: var(--color-primario-oscuro);
+    margin-top: 0;
     margin-bottom: 0.5rem;
 }
 
-.tarjeta-turistica h3 {
-    margin-top: 1.2rem;
-    margin-bottom: 0.4rem;
-    font-size: 1.1rem;
+.tarjeta-turistica h3,
+.tarjeta-turistica h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--color-texto);
 }
 
 .tarjeta-turistica .ubicacion {
     font-size: 0.95rem;
-    color: #555555;
+    color: var(--color-texto-claro);
     margin-top: 0;
     margin-bottom: 1rem;
 }
@@ -315,7 +320,7 @@ figure.tarjeta-imagen {
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-borde);
     max-width: 800px;
     width: 100%;
     margin: 2rem auto;
@@ -333,7 +338,7 @@ figure.tarjeta-imagen img {
 figure.tarjeta-imagen figcaption {
     text-align: center;
     font-size: 0.9rem;
-    color: #666666;
+    color: var(--color-texto-claro);
     margin-top: 10px;
     font-style: italic;
 }
@@ -374,7 +379,7 @@ form button[type="submit"] {
     display: block;
     margin-top: 2rem;
     background-color: var(--color-primario);
-    color: var(--color-texto);
+    color: #ffffff;
     font-weight: 700;
     font-size: 1rem;
     padding: 0.8rem 2rem;
@@ -391,7 +396,7 @@ form button[type="submit"]:hover {
 /* ========================================== FOOTER ========================================== */
 footer {
     background-color: var(--color-primario);
-    color: var(--color-texto);
+    color: #ffffff;
     padding: 1.5rem;
     margin-top: 2rem;
     text-align: center;
@@ -403,12 +408,12 @@ footer address {
 }
 
 footer a {
-    color: var(--color-texto);
+    color: #ffffff;
     font-weight: 600;
 }
 
 footer a:hover {
-    color: #ffffff;
+    color: #e0f7fa;
 }
 
 footer ul {
