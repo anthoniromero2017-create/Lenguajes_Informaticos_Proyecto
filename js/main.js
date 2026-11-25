@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function obtenerTemaPreferidoSistema() {
+        if (window.matchMedia) {
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        return "light";
+    }
+
     function aplicarEstadoBoton(esOscuro) {
         if (!botonTema) return;
 
@@ -26,28 +33,43 @@ document.addEventListener("DOMContentLoaded", () => {
         botonTema.setAttribute("aria-pressed", String(esOscuro));
 
         if (esOscuro) {
-            botonTema.classList.replace("btn-dark", "btn-light");
+            botonTema.classList.remove("btn-dark");
+            botonTema.classList.add("btn-light");
         } else {
-            botonTema.classList.replace("btn-light", "btn-dark");
+            botonTema.classList.remove("btn-light");
+            botonTema.classList.add("btn-dark");
         }
     }
 
-    // Carga el tema guardado al abrir cualquier página
+    function aplicarTema(tema) {
+        const esOscuro = tema === "dark";
+        htmlElement.setAttribute("data-bs-theme", esOscuro ? "dark" : "light");
+        aplicarEstadoBoton(esOscuro);
+    }
+
+    // Carga el tema guardado o la preferencia del sistema en la primera visita
     const temaGuardado = leerTema();
-    const esOscuroInicial = temaGuardado === "dark";
-    htmlElement.setAttribute("data-bs-theme", esOscuroInicial ? "dark" : "light");
-    aplicarEstadoBoton(esOscuroInicial);
+    const temaInicial = temaGuardado === "dark" || temaGuardado === "light"
+        ? temaGuardado
+        : obtenerTemaPreferidoSistema();
+
+    aplicarTema(temaInicial);
 
     // Cambia el tema al hacer clic en el botón
     if (botonTema) {
         botonTema.addEventListener("click", () => {
             const esOscuroActual = htmlElement.getAttribute("data-bs-theme") === "dark";
-            const siguienteEsOscuro = !esOscuroActual;
-            const siguienteTema = siguienteEsOscuro ? "dark" : "light";
+            const siguienteTema = esOscuroActual ? "light" : "dark";
 
-            htmlElement.setAttribute("data-bs-theme", siguienteTema);
+            aplicarTema(siguienteTema);
             guardarTema(siguienteTema);
-            aplicarEstadoBoton(siguienteEsOscuro);
         });
     }
+
+    // Sincroniza el tema si cambia en otra pestaña del mismo sitio
+    window.addEventListener("storage", (event) => {
+        if (event.key === claveTema && (event.newValue === "dark" || event.newValue === "light")) {
+            aplicarTema(event.newValue);
+        }
+    });
 });
