@@ -1,438 +1,53 @@
-/* ==========================================PALETA DE COLORES Y VARIABLES========================================== */
-:root {
-    --color-primario: #1c9cad;
-    --color-primario-oscuro: #419eab;
-    --color-acento: #f1f3f3;
-    --color-texto: #1a1a1a;
-    --color-fondo: #f9f7fa; 
-    --color-texto-claro: #c7c7c7;
-    --fuente-principal: "Inter", system-ui, -apple-system, sans-serif;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const botonTema = document.getElementById("btn-tema");
+    const htmlElement = document.documentElement;
+    const claveTema = "tema-cybercity";
 
-/* ==========================================PARA PONER EL MODO OSCURO JOJOJO========================================== */
+    function leerTema() {
+        try {
+            return localStorage.getItem(claveTema);
+        } catch {
+            return null;
+        }
+    }
 
-[data-bs-theme="dark"] {
-    --color-primario: #116470;
-    --color-primario-oscuro: #1c9cad;
-    --color-acento: #1e293b;
-    --color-texto: #f1f5f9;
-    --color-fondo: #0f172a;
-    --color-texto-claro: #94a3b8;
-}
+    function guardarTema(tema) {
+        try {
+            localStorage.setItem(claveTema, tema);
+        } catch {
+            // Ignora si el almacenamiento está restringido
+        }
+    }
 
-/* Esto lo puse para adaptar los títulos y tarjetas que tenían colores fijos a modo oscuro  jejeje*/
-[data-bs-theme="dark"] h1 {
-    color: #38bdf8;
-}
+    function aplicarEstadoBoton(esOscuro) {
+        if (!botonTema) return;
 
-[data-bs-theme="dark"] header h2 {
-    color: #e2e8f0;
-}
+        botonTema.textContent = esOscuro ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+        botonTema.setAttribute("aria-pressed", String(esOscuro));
 
-[data-bs-theme="dark"] main h2,
-[data-bs-theme="dark"] main h3 {
-    color: var(--color-texto);
-}
+        if (esOscuro) {
+            botonTema.classList.replace("btn-dark", "btn-light");
+        } else {
+            botonTema.classList.replace("btn-light", "btn-dark");
+        }
+    }
 
-[data-bs-theme="dark"] .tarjeta-turistica,
-[data-bs-theme="dark"] figure.tarjeta-imagen {
-    background-color: #1e293b;
-    border-color: #334155;
-}
+    // Carga el tema guardado al abrir cualquier página
+    const temaGuardado = leerTema();
+    const esOscuroInicial = temaGuardado === "dark";
+    htmlElement.setAttribute("data-bs-theme", esOscuroInicial ? "dark" : "light");
+    aplicarEstadoBoton(esOscuroInicial);
 
-[data-bs-theme="dark"] .tarjeta-turistica .ubicacion,
-[data-bs-theme="dark"] dd {
-    color: #cbd5e1;
-}
+    // Cambia el tema al hacer clic en el botón
+    if (botonTema) {
+        botonTema.addEventListener("click", () => {
+            const esOscuroActual = htmlElement.getAttribute("data-bs-theme") === "dark";
+            const siguienteEsOscuro = !esOscuroActual;
+            const siguienteTema = siguienteEsOscuro ? "dark" : "light";
 
-[data-bs-theme="dark"] form input[type="text"],
-[data-bs-theme="dark"] form input[type="email"],
-[data-bs-theme="dark"] form input[type="date"],
-[data-bs-theme="dark"] form input[type="tel"],
-[data-bs-theme="dark"] form select,
-[data-bs-theme="dark"] form textarea {
-    color: var(--color-texto);
-}
-  
-
-/* ==========================================RESET BÁSICO Y ESTILOS GLOBALES========================================== */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 18px;
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--fuente-principal);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-texto);
-    background-color: var(--color-fondo);
-    width: 100%;
-}
-
-/* ==========================================TIPOGRAFÍA Y ELEMENTOS BÁSICOS========================================= */
-h1, h2, h3 {
-    color: var(--color-texto);
-    line-height: 1.2;
-}
-
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
-
-p {
-    margin-top: 1rem;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #e2e8f0;
-    margin: 2rem 0;
-}
-
-/* Listas dentro del Main */
-main ul, main ol {
-    padding-left: 1.2rem;
-    margin-top: 1rem;   
-    margin-bottom: 1.5rem;  
-}
-
-main li {
-    margin-bottom: 0.8rem; 
-}
-
-/* Listas de definición (dl, dt, dd) */
-dl {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-dt {
-    font-weight: bold;
-    margin-top: 1rem;
-    color: var(--color-texto);
-}
-
-dd {
-    margin-left: 1rem;
-    margin-top: 0.2rem;
-    color: #4a5568;
-}
-
-/* ==========================================HEADER Y NAVEGACIÓN========================================= */
-header {
-    color: var(--color-texto);
-    background-color: var(--color-primario);
-    padding: 2rem;
-    width: 100%;
-}
-
-/* Menú de Navegación */
-nav {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-}
-
-nav a {
-    color: var(--color-fondo);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-nav a:hover,
-nav a:focus {
-    color: var(--color-texto-claro);
-    text-decoration: underline;
-}
-
-/* Boton para abrir la barra de navegacion */
-.navbar-toggler {
-    background-color: var(--color-primario-oscuro);
-    border: 2px solid var(--color-acento);
-    border-radius: 6px;
-    padding: 8px 10px;
-    display: flex;
-    flex: column;
-    flex-direction: column;
-    gap: 4px;
-    cursor: pointer;
-    box-shadow: none !important;
-}
-
-/* Las 3 barritas dibujadas para que no quede feo xd */
-.barrita {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: var(--color-acento);
-    border-radius: 2px;
-    transition: all 0.2s ease;
-}
-
-.navbar-toggler:hover .barrita {
-    background-color: #000000;
-}
-
-/* ==========================================MAIN Y SECCIONES======================================== */
-main {
-    padding: 2rem;
-    max-width: 1100px;
-    margin: 0 auto; 
-}
-
-section {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-primario);
-}
-
-/* Imágenes dentro de Secciones */
-main section img {
-    width: 100%;
-    max-width: 800px;
-    height: auto; 
-    border-radius: 5px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-/* Figura y Galerías */
-figure {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-    justify-content: center;
-    margin: 1.5rem 0;
-}
-
-figure img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover; 
-    border-radius: 5px;
-}
-
-figcaption {
-    grid-column: 1 / -1; 
-    text-align: center;
-    font-style: italic;
-    color: #555;
-    margin-top: 0.5rem;
-}
-
-/* ==========================================TARJETAS Y LUGARES TURÍSTICOS========================================= */
-.contenedor-tarjetas {
-    display: flex;
-    flex-direction: column; 
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-.tarjeta-turistica {
-    flex: 1 1 300px;
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-left: 5px solid var(--color-primario);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.tarjeta-turistica h2 {
-    color: var(--color-primario-oscuro);
-    margin-bottom: 0.5rem;
-}
-
-.tarjeta-turistica h3 {
-    margin-top: 1.2rem;
-    margin-bottom: 0.4rem;
-    font-size: 1.1rem;
-    color: var(--color-texto);
-}
-
-.tarjeta-turistica .ubicacion {
-    font-size: 0.95rem;
-    color: #555555;
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-/* ==========================================HITORIA Y TARJETAS========================================= */
-
-/* Título principal */
-h1 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #0b3c5d; 
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-}
-
-/* Subtítulo del header*/
-header h2 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: #333333; 
-    line-height: 1.5;
-    margin-top: 0;
-}
-
-/* Títulos de sección dentro de <main> */
-main h2 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #1d2731;
-    border-left: 5px solid #3282b8; 
-    padding-left: 12px;
-    margin-top: 32px;
-    margin-bottom: 16px;
-}
-main h3 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1d2731;
-    border-left: 3px solid #3282b8; 
-    padding-left: 10px;
-    margin-top: 24px;
-    margin-bottom: 12px;
-}
-/* Imagenes y contono */
-figure.tarjeta-imagen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-    justify-content: center;
-
-    /* Estilos del contenedor */
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e2e8f0;
-    
-    max-width: 800px;
-    width: 100%;
-    margin: 2rem auto;    
-}
-
-figure.tarjeta-imagen img {
-    width: 100%;
-    max-width: 700px;       
-    height: 300px;
-    object-fit: cover;      
-    border-radius: 8px;
-    display: block;
-}
-
-figure.tarjeta-imagen figcaption {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 10px;
-    font-style: italic;
-}
-
-
-/* ==========================================FORMULARIO DE REGISTRO / CONTACTO========================================= */
-form {
-    max-width: 600px;
-    margin: 1.5rem 0; 
-}
-
-form label {
-    display: block;
-    margin-top: 1.2rem;
-    font-weight: 600;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="date"],
-form input[type="tel"],
-form select,
-form textarea {
-    width: 100%;
-    padding: 0.6rem;
-    margin-top: 0.4rem;
-    border: 1px solid var(--color-primario); 
-    border-radius: 5px;
-    background-color: var(--color-fondo);
-    font-family: var(--fuente-principal);
-    font-size: 0.95rem;
-}
-
-form textarea {
-    resize: vertical;
-}
-
-form button[type="submit"] {
-    display: block;
-    margin-top: 2rem;
-    background-color: var(--color-primario);
-    color: var(--color-texto);
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-form button[type="submit"]:hover {
-    background-color: var(--color-primario-oscuro);
-}
-
-/* ==========================================FOOTER========================================= */
-footer {
-    background-color: var(--color-primario);
-    color: var(--color-texto);
-    padding: 1.5rem;
-    margin-top: 2rem;
-    text-align: center;
-}
-
-footer address {
-    font-style: normal;
-    line-height: 1.8;
-}
-
-footer a {
-    color: var(--color-texto);
-    font-weight: 600;
-}
-
-footer a:hover {
-    color: #ffffff;
-}
-
-footer ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-footer li {
-    margin: 10px 0;
-}
+            htmlElement.setAttribute("data-bs-theme", siguienteTema);
+            guardarTema(siguienteTema);
+            aplicarEstadoBoton(siguienteEsOscuro);
+        });
+    }
+});
