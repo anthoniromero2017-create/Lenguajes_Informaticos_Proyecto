@@ -1,16 +1,15 @@
-/* ==========================================PALETA DE COLORES Y VARIABLES========================================== */
+/* ========================================== PALETA DE COLORES Y VARIABLES ========================================== */
 :root {
     --color-primario: #1c9cad;
     --color-primario-oscuro: #419eab;
     --color-acento: #f1f3f3;
     --color-texto: #1a1a1a;
-    --color-fondo: #f9f7fa; 
+    --color-fondo: #f9f7fa;
     --color-texto-claro: #c7c7c7;
     --fuente-principal: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-/* ==========================================PARA PONER EL MODO OSCURO JOJOJO========================================== */
-
+/* ========================================== MODO OSCURO ========================================== */
 [data-bs-theme="dark"] {
     --color-primario: #116470;
     --color-primario-oscuro: #1c9cad;
@@ -20,7 +19,6 @@
     --color-texto-claro: #94a3b8;
 }
 
-/* Esto lo puse para adaptar los títulos y tarjetas que tenían colores fijos a modo oscuro  jejeje*/
 [data-bs-theme="dark"] h1 {
     color: #38bdf8;
 }
@@ -41,8 +39,10 @@
 }
 
 [data-bs-theme="dark"] .tarjeta-turistica .ubicacion,
-[data-bs-theme="dark"] dd {
-    color: #cbd5e1;
+[data-bs-theme="dark"] dd,
+[data-bs-theme="dark"] figcaption,
+[data-bs-theme="dark"] figure.tarjeta-imagen figcaption {
+    color: var(--color-texto-claro);
 }
 
 [data-bs-theme="dark"] form input[type="text"],
@@ -53,9 +53,8 @@
 [data-bs-theme="dark"] form textarea {
     color: var(--color-texto);
 }
-  
 
-/* ==========================================RESET BÁSICO Y ESTILOS GLOBALES========================================== */
+/* ========================================== RESET BÁSICO Y ESTILOS GLOBALES ========================================== */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -76,15 +75,49 @@ body {
     width: 100%;
 }
 
-/* ==========================================TIPOGRAFÍA Y ELEMENTOS BÁSICOS========================================= */
-h1, h2, h3 {
-    color: var(--color-texto);
+/* ========================================== TIPOGRAFÍA Y ELEMENTOS BÁSICOS ========================================== */
+h1 {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0b3c5d;
     line-height: 1.2;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
+header h2 {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #333333;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+main h2 {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #1d2731;
+    line-height: 1.2;
+    border-left: 5px solid #3282b8;
+    padding-left: 12px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+main h3 {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1d2731;
+    line-height: 1.2;
+    border-left: 3px solid #3282b8;
+    padding-left: 10px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
 
 p {
     margin-top: 1rem;
@@ -99,12 +132,12 @@ hr {
 /* Listas dentro del Main */
 main ul, main ol {
     padding-left: 1.2rem;
-    margin-top: 1rem;   
-    margin-bottom: 1.5rem;  
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 main li {
-    margin-bottom: 0.8rem; 
+    margin-bottom: 0.8rem;
 }
 
 /* Listas de definición (dl, dt, dd) */
@@ -125,7 +158,7 @@ dd {
     color: #4a5568;
 }
 
-/* ==========================================HEADER Y NAVEGACIÓN========================================= */
+/* ========================================== HEADER Y NAVEGACIÓN ========================================== */
 header {
     color: var(--color-texto);
     background-color: var(--color-primario);
@@ -159,21 +192,20 @@ nav a:focus {
     text-decoration: underline;
 }
 
-/* Boton para abrir la barra de navegacion */
+/* Botón para abrir la barra de navegación */
 .navbar-toggler {
     background-color: var(--color-primario-oscuro);
     border: 2px solid var(--color-acento);
     border-radius: 6px;
     padding: 8px 10px;
     display: flex;
-    flex: column;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
     box-shadow: none !important;
 }
 
-/* Las 3 barritas dibujadas para que no quede feo xd */
+/* Las 3 barritas dibujadas */
 .barrita {
     display: block;
     width: 22px;
@@ -187,11 +219,11 @@ nav a:focus {
     background-color: #000000;
 }
 
-/* ==========================================MAIN Y SECCIONES======================================== */
+/* ========================================== MAIN Y SECCIONES ========================================== */
 main {
     padding: 2rem;
     max-width: 1100px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 section {
@@ -204,7 +236,7 @@ section {
 main section img {
     width: 100%;
     max-width: 800px;
-    height: auto; 
+    height: auto;
     border-radius: 5px;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -223,25 +255,26 @@ figure {
 figure img {
     width: 100%;
     height: 250px;
-    object-fit: cover; 
+    object-fit: cover;
     border-radius: 5px;
 }
 
 figcaption {
-    grid-column: 1 / -1; 
+    grid-column: 1 / -1;
     text-align: center;
     font-style: italic;
-    color: #555;
+    color: #555555;
     margin-top: 0.5rem;
 }
 
-/* ==========================================TARJETAS Y LUGARES TURÍSTICOS========================================= */
+/* ========================================== TARJETAS Y LUGARES TURÍSTICOS ========================================== */
 .contenedor-tarjetas {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 2rem;
 }
+
 .tarjeta-turistica {
     flex: 1 1 300px;
     background-color: #ffffff;
@@ -272,73 +305,27 @@ figcaption {
     margin-bottom: 1rem;
 }
 
-/* ==========================================HITORIA Y TARJETAS========================================= */
-
-/* Título principal */
-h1 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #0b3c5d; 
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-}
-
-/* Subtítulo del header*/
-header h2 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: #333333; 
-    line-height: 1.5;
-    margin-top: 0;
-}
-
-/* Títulos de sección dentro de <main> */
-main h2 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: #1d2731;
-    border-left: 5px solid #3282b8; 
-    padding-left: 12px;
-    margin-top: 32px;
-    margin-bottom: 16px;
-}
-main h3 {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1d2731;
-    border-left: 3px solid #3282b8; 
-    padding-left: 10px;
-    margin-top: 24px;
-    margin-bottom: 12px;
-}
-/* Imagenes y contono */
+/* ========================================== HISTORIA Y TARJETAS ========================================== */
 figure.tarjeta-imagen {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     justify-content: center;
-
-    /* Estilos del contenedor */
     background-color: #ffffff;
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border: 1px solid #e2e8f0;
-    
     max-width: 800px;
     width: 100%;
-    margin: 2rem auto;    
+    margin: 2rem auto;
 }
 
 figure.tarjeta-imagen img {
     width: 100%;
-    max-width: 700px;       
+    max-width: 700px;
     height: 300px;
-    object-fit: cover;      
+    object-fit: cover;
     border-radius: 8px;
     display: block;
 }
@@ -346,16 +333,15 @@ figure.tarjeta-imagen img {
 figure.tarjeta-imagen figcaption {
     text-align: center;
     font-size: 0.9rem;
-    color: #666;
+    color: #666666;
     margin-top: 10px;
     font-style: italic;
 }
 
-
-/* ==========================================FORMULARIO DE REGISTRO / CONTACTO========================================= */
+/* ========================================== FORMULARIO DE REGISTRO / CONTACTO ========================================== */
 form {
     max-width: 600px;
-    margin: 1.5rem 0; 
+    margin: 1.5rem 0;
 }
 
 form label {
@@ -373,7 +359,7 @@ form textarea {
     width: 100%;
     padding: 0.6rem;
     margin-top: 0.4rem;
-    border: 1px solid var(--color-primario); 
+    border: 1px solid var(--color-primario);
     border-radius: 5px;
     background-color: var(--color-fondo);
     font-family: var(--fuente-principal);
@@ -402,7 +388,7 @@ form button[type="submit"]:hover {
     background-color: var(--color-primario-oscuro);
 }
 
-/* ==========================================FOOTER========================================= */
+/* ========================================== FOOTER ========================================== */
 footer {
     background-color: var(--color-primario);
     color: var(--color-texto);
