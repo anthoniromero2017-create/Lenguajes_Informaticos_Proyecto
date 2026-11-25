@@ -3,99 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber City</title>
+    <title>Inicio — Cyber City</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/estilos.css">
 </head>
 <body>
     <header>
-        <img src="./img/logo-futurista.png" alt="logo-futurista" height="125" width="125">
+        <img src="./img/logo-futurista.png" alt="Logo de Cyber City" height="125" width="125">
         <h1>Cyber City</h1>
-        <h2>Donde la humanidad alcanza su máximo potencial.</h2>
+        <p class="lema-ciudad">Donde la humanidad alcanza su máximo potencial.</p>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="barrita"></span>
-            <span class="barrita"></span>
-            <span class="barrita"></span>
-        </button>
+        <nav class="navbar navbar-expand-md" aria-label="Navegación principal">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="barrita"></span>
+                <span class="barrita"></span>
+                <span class="barrita"></span>
+            </button>
 
-        <nav class="collapse navbar-collapse" id="navbarNav">
-            <ul>
-                <li> <a href="./index.html">Inicio</a> </li>
-                <li> <a href="./contacto.html">Contacto</a> </li>
-                <li> <a href="./historia.html">Historia</a> </li>
-                <li> <a href="./lugaresTuristicos.html">Lugares Turísticos</a> </li>
-                <li> <a href="#redes">Redes Sociales</a> </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul>
+                    <li><a href="./index.html" aria-current="page">Inicio</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                    <li><a href="./historia.html">Historia</a></li>
+                    <li><a href="./lugaresTuristicos.html">Lugares Turísticos</a></li>
+                    <li><a href="#redes">Redes Sociales</a></li>
+                </ul>
+            </div>
         </nav>
-        <button id="btn-tema" class="btn btn-dark mt-2" type="button">🌙 Modo Oscuro</button>
 
+        <button id="btn-tema" class="btn btn-dark mt-2" type="button">🌙 Modo Oscuro</button>
         <hr>
     </header>
-    <main>
 
+    <main>
         <section>
             <h2>Nuestra Ciudad</h2>
-            <img src="./img/ciudadFuturistica1.png" alt="logo-futurista" height="534" width="800">
+            <img src="./img/ciudadFuturistica1.png" alt="Vista panorámica de Cyber City con edificios futuristas" height="534" width="800">
             <p>
-                Te presentamos la ciudad <strong>Cyber City</strong> la cual te ofrece vivir en un
-                gran hogar futurista. Olvidate de ir a hacer las compras, de los ladrones y tus malas 
-                experiencias con el internet.
-                <br>
-                Aquí puedes vivir con toda tu familia a tan solo un precio de <strong>600 USD</strong> al mes.
-                <br>
-                Tenemos robots que limpian la basura de la ciudad día a día, unos robots repartidores que
-                te llevan la comida a tu casa y sin siquiera un costo de envio.
+                Te presentamos la ciudad <strong>Cyber City</strong>, diseñada para ofrecerte un hogar futurista. Olvidate de ir a hacer las compras, de la inseguridad y de las malas conexiones a internet.
             </p>
-            
+            <p>
+                Viví con toda tu familia desde <strong>600 USD</strong> al mes, con robots que mantienen limpia la ciudad todos los días y drones o robots repartidores que llevan pedidos a tu puerta sin costo de envío.
+            </p>
             <a href="./historia.html">Conocé más sobre nuestra historia...</a>
         </section>
 
         <section>
             <h2>Educación gratuita para todos</h2>
-            <img src="./img/estudiantes.png" alt="Designer" height="125" width="125">
+            <img src="./img/estudiantes.png" alt="Estudiantes en el campus de Cyber City" height="125" width="125">
             <p>
-                Disponemos de la mejor educación a nivel internacional. Todos los chicos y chicas tendran un acceso
-                gratuito a cada Escuela y Universidad de la ciudad.
-                <br>
-                Actualmente contamos con 15 escuelas y 2 universidades con una gran variedad de carreras para elegir.
-                <br>
-                También nuestra educación cuenta con distintos tipos de eventos culturales los cuales son enfocados en
-                música, deporte y gastronomia nacional e internacional.
+                Contamos con educación gratuita en todos los niveles dentro de la ciudad: chicos y jóvenes acceden sin costo a cada escuela y universidad.
+            </p>
+            <p>
+                Disponemos de 15 escuelas y 2 universidades con amplias ofertas académicas, además de eventos culturales centrados en música, deporte y gastronomía local e internacional.
             </p>
         </section>
 
         <section>
             <h2>Deportes</h2>
-            <img src="./img/deportes.png" alt="Designer" height="125" width="125">
+            <img src="./img/deportes.png" alt="Actividades deportivas y competencias en Cyber City" height="125" width="125">
             <p>
-                Tenemos distintos clubes a lo largo de la ciudad con una gran variedad de deportes, al haber un transporte
-                rápido y eficiente sus habitantes pueden recorrer a gran velocidad de un lado a otro.
-                <br>
-                Los deportes más destacados de la ciudad actualmente son el Fútbol y los ESPORTS que cuenta con cientos
-                de jugadores de videojuegos como FIFA, League Of Legends y Counter Strike.
-                <br>
-                Hoy en día los chicos al tener un accesibilidad y fácilidad a la hora experimentar con distintos tipos de
-                juegos suelen optar por competir profesionalmente. 
-                <br>
-                Estos deportes además de beneficiar a la cultura de la sociedad y exaltar de felicidad a sus habitantes también
-                nos da grandes ingresos monetarios con cada evento o competición que se concreta.
+                La ciudad cuenta con clubes distribuidos en distintos sectores y un sistema de transporte rápido que permite moverse con facilidad entre sedes.
+            </p>
+            <p>
+                El fútbol y los <em>esports</em> lideran la escena local, con cientos de jugadores competitivos en títulos como FIFA, League of Legends y Counter-Strike.
+            </p>
+            <p>
+                El acceso a infraestructura y entrenamiento impulsa el desarrollo competitivo y genera eventos que fortalecen la cultura y la economía de Cyber City.
             </p>
         </section>
 
         <section>
-            <h2>¿Necesitas un empleo?</h2>
-            <img src="./img/Designer.png" alt="Designer" height="125" width="125">
+            <h2>¿Necesitás un empleo?</h2>
+            <img src="./img/Designer.png" alt="Profesional trabajando en diseño y tecnología en Cyber City" height="125" width="125">
             <p>
-                Tenemos trabajos disponibles para todos los habitantes de nuestra ciudad. Van a poder
-                seleccionar un trabajo según sus gustos personales.
-                <br>
-                En caso de que no encuentres algun trabajo que no te guste podras participar en el programa
-                de <strong>Trabajadores en Desarrollo</strong> en el cual haces distintos tipos de 
-                actividades para que puedas encontrar a lo que te gustaria dedicarte laboralmente.
+                Ofrecemos oportunidades laborales para los habitantes con opciones orientadas a distintos perfiles y preferencias personales.
+            </p>
+            <p>
+                Si aún no definiste tu rumbo laboral, podés sumarte al programa de <strong>Trabajadores en Desarrollo</strong> para probar distintas áreas y descubrir qué rol te gustaría desempeñar.
             </p>
         </section>
 
@@ -154,35 +144,52 @@
                 <p class="mx-auto mb-4" style="max-width: 650px;">
                     No te preocupes. Si tenés dudas sobre los requisitos o no sabés cómo completar algún campo, podés mirar nuestro video tutorial de inscripción paso a paso:
                 </p>
-                
+
                 <div class="ratio ratio-16x9 mx-auto rounded-3 overflow-hidden shadow" style="max-width: 640px;">
                     <iframe src="https://www.youtube.com/embed/RsSzoD-5GIU?si=A2efNoGz0tbU1Exn" title="Tutorial de inscripción en YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
-
-
     </main>
-    
+
     <footer id="redes">
         <h3>Nuestras Redes Sociales</h3>
 
         <nav aria-label="Redes sociales">
-            <ul>
-                <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-                <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-                <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>
-                <li><a href="https://www.tiktok.com/" target="_blank">TikTok</a></li>
+            <ul class="list-unstyled d-flex flex-wrap gap-3 align-items-center justify-content-center m-0">
+                <li>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="Instagram de Cyber City">
+                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                        <span class="visually-hidden">Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="Facebook de Cyber City">
+                        <i class="bi bi-facebook" aria-hidden="true"></i>
+                        <span class="visually-hidden">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="YouTube de Cyber City">
+                        <i class="bi bi-youtube" aria-hidden="true"></i>
+                        <span class="visually-hidden">YouTube</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="TikTok de Cyber City">
+                        <i class="bi bi-tiktok" aria-hidden="true"></i>
+                        <span class="visually-hidden">TikTok</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
-        <p>
+        <p class="mt-3 mb-0">
             <small>Cyber City &copy; 2026 - Todos los derechos reservados.</small>
         </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://jsdelivr.net" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
