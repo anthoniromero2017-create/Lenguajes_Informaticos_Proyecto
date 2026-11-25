@@ -3,122 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber City</title>
+    <title>Contacto e Inscripción — Cyber City</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/estilos.css">
 </head>
 <body>
     <header>
-        <img src="./img/logo-futurista.png" alt="logo-futurista" height="125" width="125">
+        <img src="./img/logo-futurista.png" alt="Logo de Cyber City" height="125" width="125">
         <h1>Cyber City</h1>
-        <h2>Donde la humanidad alcanza su máximo potencial.</h2>
+        <p class="lema-ciudad">Donde la humanidad alcanza su máximo potencial.</p>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="barrita"></span>
-            <span class="barrita"></span>
-            <span class="barrita"></span>
-        </button>
+        <nav class="navbar navbar-expand-md" aria-label="Navegación principal">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="barrita"></span>
+                <span class="barrita"></span>
+                <span class="barrita"></span>
+            </button>
 
-        <nav class="collapse navbar-collapse" id="navbarNav">
-            <ul>
-                <li> <a href="./index.html">Inicio</a> </li>
-                <li> <a href="./contacto.html">Contacto</a> </li>
-                <li> <a href="./historia.html">Historia</a> </li>
-                <li> <a href="./lugaresTuristicos.html">Lugares Turísticos</a> </li>
-                <li> <a href="#redes">Redes Sociales</a> </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul>
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./contacto.html" aria-current="page">Contacto</a></li>
+                    <li><a href="./historia.html">Historia</a></li>
+                    <li><a href="./lugaresTuristicos.html">Lugares Turísticos</a></li>
+                    <li><a href="#redes">Redes Sociales</a></li>
+                </ul>
+            </div>
         </nav>
+
         <button id="btn-tema" class="btn btn-dark mt-2" type="button">🌙 Modo Oscuro</button>
-        
         <hr>
     </header>
+
     <main>
-        <h2>La innovadora forma de comunicación del futuro</h2> 
-        <h3>Hemos desarrollado una pulsera capaz de proyectar una pantalla interactuable que te permite contactar con nuestros servicios de emergencia, grabar robos o situaciones peligrosas, medir tu estado de salud y es capaz de recibir actualizaciones externas.</h3> 
-        <img src="img/pulcera-futurista.webp" alt="pulsera" height="300" width="500"> 
+        <section aria-labelledby="titulo-pulsera-intro">
+            <h2 id="titulo-pulsera-intro">La innovadora forma de comunicación del futuro</h2>
+            <p>
+                Desarrollamos una pulsera inteligente capaz de proyectar una pantalla interactiva para contactar con los servicios de emergencia, grabar robos o situaciones peligrosas, medir el estado de salud y recibir actualizaciones externas.
+            </p>
+            <img src="./img/pulcera-futurista.webp" alt="Pulsera holográfica futurista proyectando una interfaz en la muñeca" height="300" width="500">
+        </section>
 
-        <h2>Cómo conseguir y usar una pulsera</h2> 
-        <h3>Las pulseras se entregan a todos los ciudadanos de Cyber City, nuevos o viejos, desde que se inventaron; estas se entregan a los nuevos ciudadanos al entrar a la ciudad (nuestras pulseras son de uso exclusivo para nuestra ciudad). Formas de usar la pulsera: una vez colocada la pulsera, para encenderla tiene que tocar dos veces la pantalla para desplegar el panel holográfico. Por defecto, la pulsera posee las funciones anteriormente mencionadas, como grabar situaciones de peligro, llamar a emergencias y medir tu estado de salud. Para empezar a grabar, seleccione el ícono de la cámara y empezará a grabar; si se detecta una situación muy riesgosa, se enviará ayuda inmediatamente sin necesidad de llamar, para no llamar la atención de algún posible ladrón. Por defecto, la función de llamada llamará automáticamente a emergencias, no permitiéndote llamar a otro número (obtén la actualización de llamadas libres en los lugares designados). Para nuestro medidor de salud, solo toque el ícono del corazón para ver su estado cardiovascular, su azúcar en sangre y su presión arterial; si se detecta algún problema de salud, se enviará un mensaje a emergencias para que se pongan en contacto con usted. Para obtener más funciones de la pulsera, acuda a los lugares designados para descargar actualizaciones (las actualizaciones no nos pertenecen, son creadas por los ciudadanos o las empresas).</h3> 
-        <img src="img/pulcera-refecencia.png" alt="pulsera" height="300" width="500"> 
+        <section aria-labelledby="titulo-uso-pulsera">
+            <h2 id="titulo-uso-pulsera">Cómo conseguir y usar una pulsera</h2>
+            <p>
+                Las pulseras se entregan a todos los ciudadanos de Cyber City al ingresar a la ciudad y son de uso exclusivo dentro de la metrópolis. Para encenderla, tocá dos veces la pantalla y desplegá el panel holográfico.
+            </p>
+            <ul>
+                <li><strong>Grabación y emergencias:</strong> Tocá el ícono de cámara para grabar. Si se detecta un riesgo alto, se envía ayuda automáticamente sin llamar para no alertar a un posible ladrón. Por defecto, las llamadas van a emergencias salvo que instales la actualización de llamadas libres en los puntos habilitados.</li>
+                <li><strong>Medidor de salud:</strong> Tocá el ícono del corazón para consultar frecuencia cardiovascular, glucemia y presión arterial. Si se detecta una anomalía, el sistema avisa a emergencias para contactar contigo.</li>
+                <li><strong>Actualizaciones externas:</strong> Podés descargar funciones adicionales creadas por ciudadanos o empresas en los puestos designados.</li>
+            </ul>
+            <img src="./img/pulcera-refecencia.png" alt="Referencia visual de los controles y funciones de la pulsera de Cyber City" height="300" width="500">
+        </section>
 
-        <h2>Formas de contacto con nuestro personal de seguridad o guías de la ciudad</h2> 
-        <h3>Es simple ubicar nuestras centrales de seguridad, porque usualmente son los edificios más grandes de la ciudad y puede ubicarlos mejor por su logo reconocible, pero siempre podrá consultarlo a nuestros guías, a quienes podrá encontrar en pequeños puestos colocados en las esquinas de algunas partes de la ciudad o, si eres nuevo, en la entrada de la ciudad.</h3> 
-        <img src="img/cuerpo-seguridad.jpg" alt="logo-futurista" height="350" width="500">
+        <section aria-labelledby="titulo-seguridad">
+            <h2 id="titulo-seguridad">Formas de contacto con seguridad o guías de la ciudad</h2>
+            <p>
+                Las centrales de seguridad suelen ocupar los edificios más altos y reconocibles por su emblema oficial. También podés consultar a los guías en los puestos de las esquinas o en la entrada principal si acabás de llegar.
+            </p>
+            <img src="./img/cuerpo-seguridad.jpg" alt="Personal de seguridad de Cyber City en patrullaje urbano" height="350" width="500">
+        </section>
 
+        <section aria-labelledby="titulo-inscripcion">
+            <h2 id="titulo-inscripcion">¡Comenzá tu inscripción en Cyber City!</h2>
 
-        <h2>¡Comenza tu inscripción en Cyber City!</h2>
-        <form>
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" placeholder="Nombre" required>
-            
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" placeholder="Apellido" required>
-            
-            <label for="email">Correo Electronico</label>
-            <input type="email" name="email" id="email" placeholder="tu@correo.com" required>
-            
-            <label for="fechaNac">Fecha de Nacimiento</label>
-            <input type="date" name="fechaNac" id="fechaNac" required>
-            
-            <label for="telefono">Teléfono</label>
-            <input type="tel" name="telefono" id="telefono" placeholder="+541133772200">
-            
-            <label for="genero">Género</label>
-            <select name="genero" id="genero">
-                <option value="" disabled selected>Elige tu Género</option>
-                <option value="masc">Masculino</option>
-                <option value="fem">Femenino</option>
-                <option value="bin">No binario / Otro</option>
-                <option value="nop">Prefiero no decirlo</option>
-            </select>
-            
-            <label for="vivienda">Vivienda</label>
-            <select name="vivienda" id="vivienda" required>
-                <option value="" disabled selected>Elige tu tipo de vivienda</option>
-                <option value="depto-modular">Departamento Modular Inteligente (Paredes móviles automatizadas)</option>
-                <option value="casa-arbol">Eco-Hábitat Bio-Digital (Casa-árbol genética con energía bioluminiscente)</option>
-                <option value="mansion-flotante">Eco-Mansión Flotante (Levitación magnética y mayordomo robot)</option>
-            </select>
-            
-            <label for="empleo">Empleo</label>
-            <select name="empleo" id="empleo" required>
-                <option value="" disabled selected>Elige tu tipo de empleo</option>
-                <option value="propio">Tengo un empleo propio (Remoto / Autónomo)</option>
-                <option value="programador">Programador de Inteligencia Artificial</option>
-                <option value="mecanico">Mecánico de Robots y Drones de Reparto</option>
-                <option value="desarrollo">Programa de Trabajadores en Desarrollo (Aprender oficio)</option>
-            </select>
-            
-            <label for="mensaje">Un Comentario</label>
-            
-            <textarea name="mensaje" id="mensaje" rows="4" placeholder="Una información extra que quieras aportar"></textarea>
-            
-            <button type="submit">Enviar</button>
-        </form>
+            <form action="#" method="post" novalidate>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" name="email" id="email" placeholder="tu@correo.com" required>
+
+                <label for="fechaNac">Fecha de nacimiento</label>
+                <input type="date" name="fechaNac" id="fechaNac" required>
+
+                <label for="telefono">Teléfono</label>
+                <input type="tel" name="telefono" id="telefono" placeholder="+541133772200">
+
+                <label for="genero">Género</label>
+                <select name="genero" id="genero">
+                    <option value="" disabled selected>Elige tu género</option>
+                    <option value="masc">Masculino</option>
+                    <option value="fem">Femenino</option>
+                    <option value="bin">No binario / Otro</option>
+                    <option value="nop">Prefiero no decirlo</option>
+                </select>
+
+                <label for="vivienda">Vivienda</label>
+                <select name="vivienda" id="vivienda" required>
+                    <option value="" disabled selected>Elige tu tipo de vivienda</option>
+                    <option value="depto-modular">Departamento Modular Inteligente (Paredes móviles automatizadas)</option>
+                    <option value="casa-arbol">Eco-Hábitat Bio-Digital (Casa-árbol genética con energía bioluminiscente)</option>
+                    <option value="mansion-flotante">Eco-Mansión Flotante (Levitación magnética y mayordomo robot)</option>
+                </select>
+
+                <label for="empleo">Empleo</label>
+                <select name="empleo" id="empleo" required>
+                    <option value="" disabled selected>Elige tu tipo de empleo</option>
+                    <option value="propio">Tengo un empleo propio (Remoto / Autónomo)</option>
+                    <option value="programador">Programador de Inteligencia Artificial</option>
+                    <option value="mecanico">Mecánico de Robots y Drones de Reparto</option>
+                    <option value="desarrollo">Programa de Trabajadores en Desarrollo (Aprender oficio)</option>
+                </select>
+
+                <label for="mensaje">Un comentario</label>
+                <textarea name="mensaje" id="mensaje" rows="4" placeholder="Una información extra que quieras aportar"></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
         <hr>
     </main>
+
     <footer id="redes">
         <h3>Nuestras Redes Sociales</h3>
 
         <nav aria-label="Redes sociales">
-            <ul>
-                <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
-                <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-                <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>
-                <li><a href="https://www.tiktok.com/" target="_blank">TikTok</a></li>
+            <ul class="list-unstyled d-flex flex-wrap gap-3 align-items-center justify-content-center m-0">
+                <li>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="Instagram de Cyber City">
+                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                        <span class="visually-hidden">Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="Facebook de Cyber City">
+                        <i class="bi bi-facebook" aria-hidden="true"></i>
+                        <span class="visually-hidden">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="YouTube de Cyber City">
+                        <i class="bi bi-youtube" aria-hidden="true"></i>
+                        <span class="visually-hidden">YouTube</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="text-decoration-none fs-4" aria-label="TikTok de Cyber City">
+                        <i class="bi bi-tiktok" aria-hidden="true"></i>
+                        <span class="visually-hidden">TikTok</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
-        <p>
+        <p class="mt-3 mb-0">
             <small>Cyber City &copy; 2026 - Todos los derechos reservados.</small>
         </p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://jsdelivr.net" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
